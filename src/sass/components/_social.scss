@@ -1,0 +1,57 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.social {
+  &__list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+
+    &:not(.--horizontal) {
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+
+      & .social {
+        &__item {
+          &:not(&:last-child) {
+            margin-right: 30px;
+            @media (max-width: $breakpoint-md) {
+             margin-right: 24px;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  &__item {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    @media (max-width: $breakpoint-md) {
+      width: 25px;
+      height: 25px;
+    }
+
+    & i {
+      color: $primaryColor;
+      @include fontSize(24, 26);
+      @include transition(.4);
+    }
+
+    & a {
+      height: 100%;
+      width: 100%;
+    }
+
+    &:hover {
+      & i {
+        color: $accentColor;
+      }
+    }
+  }
+}
+

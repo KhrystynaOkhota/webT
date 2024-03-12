@@ -1,0 +1,290 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.btn {
+  position: relative;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Gilroy', sans-serif;
+
+  padding: 15px;
+  font-weight: 500;
+  @include fontSize(14, 16);
+  line-height: 1;
+  border: none;
+  @include transition(.4);
+
+  &:focus {
+    outline: none;
+  }
+
+  &-primary {
+    box-shadow: 0px 4px 10px 0px rgba(120, 82, 247, 0.35);
+
+    color: $whiteColor;
+    background-color: $accentColor;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 32px;
+    min-width:190px;
+
+
+    @include transition(.3);
+    @media (max-width: $breakpoint-lg) {
+
+    }
+
+    &:hover {
+      background-color: #313C5F;
+      border-color: #313C5F;
+    }
+
+    &.--large {
+      font-size: 18px;
+      display: block;
+      max-width: max-content;
+      margin: 0 auto;
+    }
+  }
+
+  &-white {
+    color: $accentColor;
+    background-color: rgba(255, 255, 255, 1);
+    @include fontSize(15, 20);
+    min-width: 120px;
+    @media (max-width: $breakpoint-md) {
+      min-width: 150px;
+      padding: 9px;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .4);
+    }
+  }
+
+  &-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    cursor: pointer;
+    border: 3px solid #FFFFFF;
+    @include transition(.5);
+
+    &:after, &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%) rotate(45deg);
+      -ms-transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
+      height: 3px;
+      width: 60%;
+      color: inherit;
+      background-color: #fff;
+      @include transition(.5);
+    }
+
+    &::after {
+      -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+      -ms-transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:hover {
+      border-color: #FB0;
+
+      &:after, &:before {
+        background-color: #FB0;
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      right: 0;
+      top: -50px;
+    }
+  }
+
+  &-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: 1px solid $whiteColor;
+    cursor: pointer;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    @include transition(.4);
+    @media (max-width: $breakpoint-md) {
+      width: 23px;
+      height: 23px;
+    }
+
+    & i {
+      font-size: 8px;
+      color: $whiteColor;
+      @include transition(.4);
+    }
+
+    &:hover {
+      border-color: #C7C7C7;
+      -webkit-transform: translateX(15px);
+      -ms-transform: translateX(15px);
+      transform: translateX(15px);
+
+      & i {
+        color: #C7C7C7;
+      }
+    }
+  }
+
+  &-more {
+    color: $primaryColor;
+    font-size: 20px;
+    font-weight: 700;
+    @include transition(.5);
+
+    i {
+      position: relative;
+      margin-left: 10px;
+
+      @include transition(.5);
+      width: 30px;
+      height: 9px;
+      background-color: rgba(255, 255, 255, 0.01);
+      @media (max-width: $breakpoint-md) {
+        width: 20px;
+        margin-left: 5px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 100%;
+        height: 1px;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        border-color: inherit;
+        @include transition(.5);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 9px;
+        height: 9px;
+        -webkit-transform: translateY(-50%) rotate(-45deg);
+        -ms-transform: translateY(-50%) rotate(-45deg);
+        transform: translateY(-50%) rotate(-45deg);
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        border-color: inherit;
+        @include transition(.5);
+      }
+    }
+
+
+    & span {
+      &:after {
+        content: '';
+        background-color: #FB0;
+        height: 14px;
+        width: 100%;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        @include transition(.5);
+        z-index: -1;
+      }
+
+    }
+
+    &:hover {
+      color: #FB0;
+
+      & i {
+        &::before, &::after {
+          border-color: #FB0;
+        }
+      }
+
+      & span {
+        &:after {
+          background-color: #F9F3CB;
+        }
+      }
+    }
+  }
+}
+
+
+.btn-pulse {
+  position: absolute;
+  width: 75.866px;
+  height: 75.866px;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 100%;
+  cursor: pointer;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: $breakpoint-md) {
+    width: 65px;
+    height: 65px;
+  }
+  &__img {
+    position: absolute;
+    z-index: 3;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    background-size: contain;
+  }
+
+  &:after, &:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 100%;
+    z-index: -1;
+
+  }
+
+  &:before {
+    animation: pulse 2s ease-out infinite;
+    opacity: 0.3;
+  }
+
+  &:after {
+    animation: pulse 2s 1s ease-out infinite;
+    opacity: 0.5;
+  }
+}
+
+
+@keyframes pulse {
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

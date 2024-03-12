@@ -1,0 +1,242 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.footer {
+  border-top: 0.5px solid rgba(0, 0, 0, 1);
+  overflow: hidden;
+
+  &__copyright {
+    padding: 30px 0;
+    @media (max-width: $breakpoint-md) {
+      padding: 25px 0;
+    }
+
+    &:before {
+      content: '';
+      height: 0.5px;
+      width: 2000%;
+      background-color: rgba(0, 0, 0, 1);
+      position: absolute;
+      top: 0;
+      left: -100%;
+    }
+
+    &--text {
+      font-weight: 400;
+      @include fontSize(14, 16);
+      line-height: 1;
+      color: $primaryColor;
+      margin: 20px 0 0 0;
+      @media (max-width: $breakpoint-md) {
+
+        text-align: center;
+      }
+    }
+  }
+
+  &__content {
+    padding: 50px 0;
+    @media (max-width: $breakpoint-md) {
+      padding: 25px 0;
+      //max-width: 300px;
+      margin: 0 auto;
+    }
+
+    &--col {
+      @media (max-width: $breakpoint-md) {
+        width: 100%;
+
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+      }
+    }
+  }
+
+  &-item {
+    // padding: 0 5px;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 30px;
+    }
+
+    &__title {
+      font-weight: 600;
+      @include fontSize(14, 16);
+      line-height: 1.25;
+      text-transform: uppercase;
+      color: $primaryColor;
+      margin-bottom: 36px;
+      @media (max-width: $breakpoint-xl) {
+        min-height: auto;
+
+      }
+    }
+  }
+
+
+  & .menu {
+    /* display: flex;
+     flex-wrap: wrap;*/
+    text-align: center;
+    margin-bottom: 10px;
+    @media (max-width: 400px) {
+      display: block;
+      text-align: center;
+    }
+
+    &-item {
+      padding: 5px 10px;
+      //  flex: 0 0 50%;
+      display: inline-block;
+
+      & a {
+        font-weight: 600;
+
+        text-decoration-line: underline;
+        @include fontSize(14, 16);
+        line-height: 1.25;
+        color: $primaryColor;
+        @include transition(.3);
+
+        &:hover {
+          color: $accentColor;
+        }
+      }
+    }
+  }
+
+  &-logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+    display: block;
+    @media (max-width: $breakpoint-lg) {
+      position: relative;
+      margin-bottom: 10px;
+
+    }
+    @media (max-width: $breakpoint-md) {
+      position: relative;
+      margin: 0 auto 10px auto;
+
+    }
+
+    &__icon {
+      @media (max-width: $breakpoint-md) {
+        margin: 0 auto;
+      }
+    }
+
+    &__desc {
+      @include fontSize(14, 18);
+      line-height: 135.9%;
+      width: 90%;
+      max-width: 300px;
+      @media (max-width: $breakpoint-md) {
+        margin: 0 auto 20px auto;
+        text-align: center;
+      }
+    }
+  }
+
+  & .social__list {
+    margin-bottom: 30px;
+    @media (max-width: $breakpoint-md) {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin-bottom: 0;
+
+    }
+  }
+
+  & .contacts__list {
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    &--item {
+
+      & span, & a, & {
+        @include fontSize(14, 18);
+      }
+
+      & span {
+        padding-right: 5px;
+        @media (max-width: $breakpoint-md) {
+          margin: 0 0 5px 0;
+        }
+      }
+
+      &:nth-child(1) {
+        & span {
+          @media (max-width: $breakpoint-lg) {
+            display: block;
+          }
+        }
+      }
+
+      &:not(&:last-child) {
+        margin-bottom: 20px;
+        @media (max-width: $breakpoint-md) {
+          margin-bottom: 15px;
+        }
+      }
+
+      & a {
+        transition: all ease-out .5s;
+
+        &:hover {
+          color: $accentColor;
+          transition: all ease-out .5s;
+        }
+      }
+    }
+  }
+
+  & .card-list {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+
+
+    @media (max-width: $breakpoint-md) {
+
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    & li {
+      width: 50px;
+      height: 50px;
+
+      &:not(&:last-child) {
+        margin-right: 28px;
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+
+}
+

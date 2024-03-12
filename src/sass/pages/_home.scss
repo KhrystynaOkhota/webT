@@ -1,0 +1,572 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+
+.s-main {
+  background: rgba(28, 28, 28, 1);
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: url("../img/bg.svg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.15;
+
+    z-index: 1;
+  }
+
+  &__content {
+    padding: 150px 0 100px 0;
+
+    & .heading {
+      margin-bottom: 24px;
+      color: $whiteColor;
+      font-weight: 600;
+
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 43px;
+      }
+
+      & span {
+        position: relative;
+
+        &:after {
+          content: '';
+          width: 120%;
+          height: 25px;
+          left: -8%;
+          bottom: -20px;
+          position: absolute;
+          background: url("../img/decor-2.svg") no-repeat center;
+          background-size: contain;
+        }
+      }
+
+    }
+
+    & .description {
+      color: $whiteColor;
+      margin-bottom: 40px;
+      @include fontSize(16, 18);
+      line-height: 1.77;
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  &__bg {
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: -5%;
+    bottom: 0;
+    width: 75%;
+    height: 96%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-position: bottom;
+      object-fit: contain;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      width: 60%;
+      right: 0;
+      left: 40%;
+      position: relative;
+    }
+
+  }
+
+
+  & .benefits {
+    &__wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 44px;
+      // gap: 16px 40px;
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+    }
+
+    &__icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+
+      &-wrap {
+        height: 48px;
+        width: 48px;
+        margin-right: 24px;
+        border-radius: 10px;
+        background-color: $whiteColor;
+        @media (max-width: $breakpoint-md) {
+          height: 40px;
+          width: 40px;
+          margin: 0 0 16px 0;
+        }
+      }
+    }
+
+    &__heading {
+      width: calc(100% - 72px);
+      @include fontSize(14, 16);
+      font-weight: 400;
+      color: $whiteColor;
+      @media (max-width: $breakpoint-md) {
+        width: 100%;
+      }
+    }
+
+    &__item {
+
+    }
+  }
+
+}
+
+.s-relevant {
+  padding: 176px 0 160px 0;
+}
+
+.s-about {
+  padding-bottom: 110px;
+
+  & .container {
+    @media (max-width: $breakpoint-sm) {
+      padding-right: 0;
+    }
+  }
+
+  & .heading {
+    margin-bottom: 20px;
+    color: $whiteColor;
+
+    & .decor {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -45%);
+      height: auto;
+      min-width: 250px;
+
+      z-index: -1;
+    }
+
+  }
+
+}
+
+.s-steps {
+  margin-bottom: 160px;
+
+  &__wrap {
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: 16px 20px;
+  }
+
+  .steps {
+    &__item {
+      background-color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(101, 52, 201, 0.25);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+      @include transition(.5);
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 8px;
+      }
+
+      &:hover {
+        background-color: $accentColor;
+
+        & .steps__description, & .steps__heading, & .steps__number {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+
+    & .steps__description, & .steps__heading, & .steps__number {
+      @include transition(.4);
+      color: red;
+    }
+
+    &__number {
+      @include fontSize(40, 64);
+      margin-right: 20px;
+    }
+
+    &__heading {
+      @include fontSize(18, 20);
+    }
+
+    &__description {
+      margin-top: 16px;
+    }
+  }
+}
+
+.s-services {
+  padding: 76px 0 63px 0;
+  margin-bottom: 160px;
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 72px;
+  }
+
+  & .service {
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 8px 20px;
+      @media (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__item {
+      padding: 10px 16px;
+      background-color: #fff;
+      border: 1px solid rgba(101, 52, 201, 0.25);
+      border-radius: 10px;
+    }
+  }
+}
+
+.s-advantages {
+  margin-bottom: 160px;
+
+  & .description {
+    margin-top: 124px;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 24px;
+    }
+  }
+
+  & .benefits {
+    &__wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 16px 40px;
+
+      @media (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+
+      }
+    }
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+
+      &-wrap {
+        height: 40px;
+        width: 40px;
+        margin-bottom: 24px;
+        border-radius: 8px;
+        background-color: $accentColor;
+      }
+    }
+
+    &__heading {
+      margin-bottom: 8px;
+    }
+
+    &__item {
+      box-shadow: 0px 4px 30px 0px rgba(120, 82, 247, 0.06);
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px 24px;
+    }
+  }
+}
+
+.s-rates {
+  margin-bottom: 160px;
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 72px;
+  }
+
+  &__inner {
+    padding: 32px 10% 40px 10%;
+    border-radius: 10px;
+    border: 2px solid $accentColor;
+    background: $whiteColor;
+    box-shadow: 0px 4px 10px 0px rgba(120, 82, 247, 0.35);
+    @media (max-width: $breakpoint-md) {
+      padding: 24px;
+    }
+
+  }
+
+  & .heading {
+    color: $whiteColor;
+
+    & .decor {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -45%);
+      height: auto;
+      min-width: 250px;
+
+      z-index: -1;
+    }
+
+
+    &__wrap {
+      margin-bottom: 32px;
+    }
+  }
+
+  & .btn-primary {
+    @media (max-width: $breakpoint-md) {
+      margin-top: 16px;
+    }
+  }
+
+  .tariff {
+    &__name {
+      margin-bottom: 24px;
+      font-size: 20px;
+    }
+
+    &__price {
+      font-size: 36px;
+
+      &-label {
+        font-size: 16px;
+        margin-bottom: 2px;
+        color: rgba(136, 136, 136, 1);
+
+      }
+    }
+
+    &__description {
+      @include fontSize(10, 12);
+      background-color: rgba(255, 255, 255, 1);
+      max-width: 295px;
+      position: absolute;
+      top: -40px;
+      left: 80%;
+      @media (max-width: $breakpoint-md) {
+        max-width: 215px;
+      }
+    }
+
+    &__services {
+      margin-top: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(226, 228, 229, 1);
+      column-count: 2;
+      column-gap: 20px;
+      @media (max-width: $breakpoint-md) {
+        margin-top: 32px;
+        column-count: 1;
+      }
+
+      & li {
+        margin-bottom: 21px;
+        @include fontSize(14, 16);
+      }
+
+    }
+
+    &__notification {
+      margin-top: 35px;
+      @include fontSize(12, 14);
+      color: rgba(136, 136, 136, 1);
+      @media (max-width: $breakpoint-md) {
+        margin-top: 27px;
+      }
+    }
+  }
+}
+
+.s-portfolio {
+  margin-bottom: 160px;
+
+  &__content {
+
+  }
+
+  & .heading {
+
+    margin-bottom: 16px;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 32px;
+    }
+
+    &__wrap {
+      display: inline;
+
+      & .decor {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  & .description {
+    margin-bottom: 32px;
+  }
+
+  &__wrap {
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: 18px 27px;
+  }
+
+  & .portfolio {
+    &__item {
+      height: 383px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      @media (max-width: $breakpoint-md) {
+        height: 340px;
+      }
+
+      &:nth-of-type(4) {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 66.666664%;
+        -ms-flex: 0 0 66.666664%;
+        flex: 0 0 66.666664%;
+        max-width: 66.666664%;
+        @media (max-width: $breakpoint-md) {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 99.999996%;
+          -ms-flex: 0 0 99.999996%;
+          flex: 0 0 99.999996%;
+          max-width: 99.999996%;
+        }
+      }
+    }
+
+    &__info {
+      padding: 24px 16px;
+    }
+
+    &__heading {
+      @include fontSize(18, 20);
+      margin-bottom: 8px;
+    }
+
+    &__description {
+      @include fontSize(14, 16);
+    }
+
+    &__icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      opacity: .5;
+    }
+  }
+}
+
+
+.s-clients {
+  margin-top: 24px;
+  margin-bottom: 100px;
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 56px;
+  }
+
+  & .heading {
+    @include fontSize(16, 18);
+    margin-bottom: 56px;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 46px;
+    }
+
+    &__line {
+      max-width: 560px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      object-fit: contain;
+      @media (max-width: $breakpoint-md) {
+        width: calc(100% - 30px);
+        max-width: 350px;
+      }
+    }
+  }
+
+  .grid-list {
+    grid-template-columns: repeat(7, 1fr);
+    display: grid;
+    gap: 18px 27px;
+    padding-bottom: 60px;
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    &__i {
+      position: relative;
+      padding-bottom: 100%;
+
+      @media (max-width: $breakpoint-sm) {
+
+      }
+
+      & .ico {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0px 4px 50px 0px rgba(0, 114, 210, 0.4);
+        @media (max-width: $breakpoint-sm) {
+          border-radius: 8px;
+        }
+
+        &-wrap {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          //overflow: hidden;
+          //  filter: grayscale(100%);
+          transition: filter .5s;
+          display: block;
+          @media (max-width: $breakpoint-sm) {
+
+          }
+
+          &:hover {
+            // filter: grayscale(0);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+

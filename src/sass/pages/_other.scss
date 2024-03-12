@@ -1,0 +1,100 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.other-page {
+  height: calc(100vh - 70px);
+  margin-top: 70px;
+  overflow: hidden;
+  padding-top: 0;
+  @media (max-width: $breakpoint-md) {
+    height: auto;
+    margin-top: 100px;
+    padding: 30px 0;
+  }
+
+  &.thanks {
+
+  }
+
+  &__content {
+
+  }
+
+  & .btn-primary {
+
+  }
+
+  &__number {
+    color: rgba(143, 192, 79, 0.6);
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: rgba(143, 192, 79, 0.6);
+
+    font-family: Helvetica, sans-serif;
+    @include fontSize(150, 500);
+    font-weight: 500;
+    line-height: 103.71%;
+
+
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
+  }
+
+  &__title {
+    font-weight: 900;
+    @include fontSize(70, 100);
+    line-height: 1;
+    color: $primaryColor;
+
+    margin-bottom: 30px;
+  }
+
+  &__description {
+    width: 80%;
+    @include fontSize(20, 25);
+    line-height: 1.2;
+    margin: 0 auto 30px auto;
+    @media (max-width: $breakpoint-md) {
+      width: 90%;
+    }
+  }
+}
+
+.error {
+  .other-page {
+    &__title {
+
+
+    }
+    &__img {
+      @media (max-width: $breakpoint-md) {
+        margin-top: 80px;
+      }
+    }
+  }
+}
+
+.thanks {
+  .other-page {
+    &__title {
+
+      @media (max-width: $breakpoint-md) {
+
+      }
+    }
+
+    &__img {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      @media (max-width: $breakpoint-md) {
+        margin-top: 30px;
+      }
+    }
+  }
+}
