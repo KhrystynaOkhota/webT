@@ -168,9 +168,23 @@
 
       z-index: -1;
     }
-
   }
 
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    &-wrap {
+      padding-bottom: 100%;
+      position: relative;
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
 }
 
 .s-steps {
@@ -215,6 +229,7 @@
 
     &__heading {
       @include fontSize(18, 20);
+      width: calc(100% - 100px);
     }
 
     &__description {
@@ -224,7 +239,7 @@
 }
 
 .s-services {
-  padding: 76px 0 63px 0;
+  //padding: 76px 0 63px 0;
   margin-bottom: 160px;
   @media (max-width: $breakpoint-md) {
     margin-bottom: 72px;
@@ -252,10 +267,28 @@
 .s-advantages {
   margin-bottom: 160px;
 
+  & .heading {
+    &__wrap {
+      & .decor {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: -20px;
+        width: 100%;
+        max-width: 488px;
+        @media (max-width: $breakpoint-md) {
+          max-width: 302px;
+          left: -3px;
+          top: calc(100% + 17px);
+        }
+      }
+    }
+  }
+
   & .description {
     margin-top: 124px;
     @media (max-width: $breakpoint-md) {
       margin-bottom: 24px;
+      margin-top: 61px;
     }
   }
 
@@ -286,8 +319,16 @@
       }
     }
 
+    &__description {
+      line-height: 1.5;
+      @include fontSize(14, 16);
+
+    }
+
     &__heading {
       margin-bottom: 8px;
+      @include fontSize(16, 20);
+
     }
 
     &__item {
@@ -322,13 +363,12 @@
 
     & .decor {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -45%);
+      top: calc(50% + 4px);
+      left: -30px;
+      transform: translateY(-50%);
       height: auto;
-      min-width: 250px;
-
       z-index: -1;
+      min-width: calc(100% + 60px);
     }
 
 
@@ -362,11 +402,16 @@
 
     &__description {
       @include fontSize(10, 12);
+      line-height: 1.5;
       background-color: rgba(255, 255, 255, 1);
-      max-width: 295px;
+      width: 295px;
+      height: 148px;
+      color: $accentColor;
+      padding: 30px 60px;
       position: absolute;
-      top: -40px;
-      left: 80%;
+      bottom: 85%;
+      left: 85%;
+      border-radius: 100%;
       @media (max-width: $breakpoint-md) {
         max-width: 215px;
       }
@@ -403,26 +448,27 @@
 
 .s-portfolio {
   margin-bottom: 160px;
+  padding-top: 35px;
 
   &__content {
 
   }
 
   & .heading {
-
+    line-height: 2;
     margin-bottom: 16px;
     @media (max-width: $breakpoint-md) {
       margin-bottom: 32px;
     }
 
     &__wrap {
-      display: inline;
 
       & .decor {
         position: absolute;
-        top: 50%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
+        min-width: calc(100% + 68px);
       }
     }
   }
