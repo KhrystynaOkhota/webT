@@ -6,24 +6,27 @@
   background: rgba(28, 28, 28, 1);
   position: relative;
 
-  &:after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background: url("../img/bg.svg");
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.15;
+  /* &:after {
+     content: '';
+     width: 100%;
+     height: 100%;
+     background: url("../img/bg.svg");
+     background-position: bottom;
+     background-repeat: no-repeat;
+     background-size: cover;
+     position: absolute;
+     top: 0;
+     left: 0;
+     opacity: 0.15;
 
-    z-index: 1;
-  }
+     z-index: 1;
+   }*/
 
   &__content {
     padding: 150px 0 100px 0;
+    @media (max-width: $breakpoint-md) {
+      padding: 115px 0 0 0;
+    }
 
     & .heading {
       margin-bottom: 24px;
@@ -63,33 +66,48 @@
   }
 
   &__bg {
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    right: -5%;
-    bottom: 0;
-    width: 75%;
-    height: 96%;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-
+    width: 40vw;
     & img {
       width: 100%;
-      height: 100%;
-      object-position: bottom;
-      object-fit: contain;
     }
 
     @media (max-width: $breakpoint-md) {
-      width: 60%;
-      right: 0;
-      left: 40%;
       position: relative;
+      width: 100%;
+      right: -16px;
+      top: 10px;
+      z-index: -1;
     }
-
   }
+
+  /* &__bg {
+     background-position: bottom;
+     background-repeat: no-repeat;
+     background-size: contain;
+     position: absolute;
+     right: -5%;
+     bottom: 0;
+     width: 75%;
+     height: 96%;
+     display: flex;
+     align-items: end;
+     justify-content: center;
+
+     & img {
+       width: 100%;
+       height: 100%;
+       object-position: bottom;
+       object-fit: contain;
+     }
+
+     @media (max-width: $breakpoint-md) {
+       width: 60%;
+       right: 0;
+       left: 40%;
+       position: relative;
+     }
+
+   }*/
 
 
   & .benefits {
@@ -141,12 +159,92 @@
 
 }
 
-.s-relevant {
-  padding: 176px 0 160px 0;
+.s-info {
+  padding: 176px 0 70px 0;
+  @media (max-width: $breakpoint-md) {
+    padding: 56px 0 85px 0;
+  }
+
+  .heading {
+    &__wrap {
+      @media (max-width: $breakpoint-sm) {
+        max-width: 236px;
+      }
+
+      & .decor {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: -20px;
+        width: 100%;
+        max-width: 383px;
+        @media (max-width: $breakpoint-md) {
+          max-width: 236px;
+        }
+      }
+    }
+  }
+
+  & .column {
+    &:nth-child(2) {
+      .info__item {
+        margin-left: 10%;
+        width: 90%;
+      }
+    }
+
+    &:nth-child(even) {
+      .info__item {
+        position: relative;
+
+        & .decor {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+
+          min-width: 106%;
+
+          transform: translate(-50%, -50%) scaleY(-1);
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      .info__item {
+        position: relative;
+
+        & .decor {
+          position: absolute;
+          top: 65%;
+          left: 50%;
+
+          min-width: 106%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  & .info {
+    &__item {
+      margin-bottom: 91px;
+      padding: 30px;
+      @media (max-width: $breakpoint-sm) {
+        margin-bottom: 50px;
+
+        max-width: 330px;
+
+
+      }
+    }
+
+    &__heading {
+      @include fontSize(14, 16);
+    }
+  }
 }
 
 .s-about {
-  padding-bottom: 110px;
+  padding-bottom: 90px;
 
   & .container {
     @media (max-width: $breakpoint-sm) {
@@ -157,6 +255,10 @@
   & .heading {
     margin-bottom: 20px;
     color: $whiteColor;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 24px;
+      padding: 0 24px 0 16px;
+    }
 
     & .decor {
       position: absolute;
@@ -164,9 +266,25 @@
       left: 50%;
       transform: translate(-50%, -45%);
       height: auto;
-      min-width: 250px;
+      width: 100%;
+      max-width: 250px;
 
       z-index: -1;
+      @media (min-width: $breakpoint-md) {
+        min-width: calc(100% + 66px);
+      }
+
+    }
+  }
+
+  & .description {
+    & p, & {
+      @include fontSize(14, 18);
+      line-height: 1.5;
+    }
+
+    & p + p {
+      margin-top: 20px;
     }
   }
 
@@ -189,24 +307,47 @@
 
 .s-steps {
   margin-bottom: 160px;
+  padding-top: 20px;
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 72px;
+  }
 
-  &__wrap {
-    grid-template-columns: repeat(3, 1fr);
-    display: grid;
-    gap: 16px 20px;
+  & .heading {
+    padding-left: 39px;
+    padding-top: 24px;
+    width: 100%;
+    max-width: min-content;
+
+    &__wrap {
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 26px;
+      }
+
+      & .decor {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+      }
+    }
   }
 
   .steps {
+    &__column {
+      margin-bottom: 16px;
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 8px;
+      }
+    }
+
     &__item {
       background-color: rgba(255, 255, 255, 1);
       border: 1px solid rgba(101, 52, 201, 0.25);
       border-radius: 10px;
       padding: 20px;
-      margin-bottom: 16px;
+      height: 100%;
       @include transition(.5);
-      @media (max-width: $breakpoint-md) {
-        margin-bottom: 8px;
-      }
 
       &:hover {
         background-color: $accentColor;
@@ -225,6 +366,7 @@
     &__number {
       @include fontSize(40, 64);
       margin-right: 20px;
+      line-height: 1.2;
     }
 
     &__heading {
@@ -233,7 +375,12 @@
     }
 
     &__description {
+      font-size: 14px;
+      line-height: 1.42;
       margin-top: 16px;
+      @media (max-width: $breakpoint-md) {
+        margin-top: 8px;
+      }
     }
   }
 }
@@ -243,6 +390,32 @@
   margin-bottom: 160px;
   @media (max-width: $breakpoint-md) {
     margin-bottom: 72px;
+  }
+
+  & .heading {
+    color: $whiteColor;
+
+    &__wrap {
+      background: $accentColor;
+      border-radius: 10px;
+      padding: 24px 16px 70px 16px;
+      height: 100%;
+      @media (max-width: $breakpoint-md) {
+        padding: 16px;
+        margin-bottom: 16px;
+        height: auto;
+      }
+
+      & .decor {
+        position: absolute;
+        bottom: -27px;
+        right: 0;
+        width: 70%;
+        @media (max-width: $breakpoint-md) {
+          display: none;
+        }
+      }
+    }
   }
 
   & .service {
@@ -256,16 +429,33 @@
     }
 
     &__item {
-      padding: 10px 16px;
+      padding: 10px 16px 10px 62px;
       background-color: #fff;
       border: 1px solid rgba(101, 52, 201, 0.25);
       border-radius: 10px;
+      position: relative;
+
+      &:before {
+        content: '\e901';
+        font-family: 'icomoon';
+        color: #6534c9;
+        font-size: 25px;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
   }
 }
 
 .s-advantages {
   margin-bottom: 160px;
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 72px;
+  }
 
   & .heading {
     &__wrap {
@@ -343,7 +533,7 @@
 .s-rates {
   margin-bottom: 160px;
   @media (max-width: $breakpoint-md) {
-    margin-bottom: 72px;
+    margin-bottom: 42px;
   }
 
   &__inner {
@@ -360,6 +550,9 @@
 
   & .heading {
     color: $whiteColor;
+    @media (max-width: $breakpoint-md) {
+      padding: 0 24px 0 16px;
+    }
 
     & .decor {
       position: absolute;
@@ -369,6 +562,12 @@
       height: auto;
       z-index: -1;
       min-width: calc(100% + 60px);
+      @media (max-width: $breakpoint-md) {
+        min-width: 100%;
+        left: 0;
+
+
+      }
     }
 
 
@@ -421,16 +620,38 @@
       margin-top: 16px;
       padding-top: 20px;
       border-top: 1px solid rgba(226, 228, 229, 1);
-      column-count: 2;
-      column-gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+
       @media (max-width: $breakpoint-md) {
         margin-top: 32px;
         column-count: 1;
       }
 
       & li {
-        margin-bottom: 21px;
+        flex: 0 0 50%;
+        margin-bottom: 27px;
         @include fontSize(14, 16);
+        padding-left: 36px;
+        position: relative;
+        @media (max-width: $breakpoint-md) {
+          flex: 0 0 100%;
+        }
+
+        &:before {
+          content: '\e901';
+          font-family: 'icomoon';
+          color: $accentColor;
+          font-size: 25px;
+          width: 25px;
+          height: 25px;
+
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+
+        }
       }
 
     }
@@ -449,6 +670,10 @@
 .s-portfolio {
   margin-bottom: 160px;
   padding-top: 35px;
+  @media (max-width: $breakpoint-md) {
+
+    margin-bottom: 52px;
+  }
 
   &__content {
 
@@ -469,12 +694,22 @@
         left: 50%;
         transform: translate(-50%, -50%);
         min-width: calc(100% + 68px);
+        @media (max-width: $breakpoint-md) {
+          min-width: calc(100% + 35px);
+        }
       }
     }
   }
 
   & .description {
     margin-bottom: 32px;
+  }
+
+  .btn-more {
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
   }
 
   &__wrap {

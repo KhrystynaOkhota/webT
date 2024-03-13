@@ -28,7 +28,7 @@
     border: none;
     border-radius: 10px;
     padding: 16px 32px;
-    min-width:190px;
+    min-width: 190px;
 
 
     @include transition(.3);
@@ -64,148 +64,37 @@
     }
   }
 
-  &-close {
-    width: 36px;
-    height: 36px;
-    border-radius: 100%;
-
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    cursor: pointer;
-    border: 3px solid #FFFFFF;
-    @include transition(.5);
-
-    &:after, &:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%) rotate(45deg);
-      -ms-transform: translate(-50%, -50%) rotate(45deg);
-      transform: translate(-50%, -50%) rotate(45deg);
-      height: 3px;
-      width: 60%;
-      color: inherit;
-      background-color: #fff;
-      @include transition(.5);
-    }
-
-    &::after {
-      -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-      -ms-transform: translate(-50%, -50%) rotate(-45deg);
-      transform: translate(-50%, -50%) rotate(-45deg);
-    }
-
-    &:hover {
-      border-color: #FB0;
-
-      &:after, &:before {
-        background-color: #FB0;
-      }
-    }
-
-    @media (max-width: $breakpoint-md) {
-      right: 0;
-      top: -50px;
-    }
-  }
-
-  &-circle {
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
-    border: 1px solid $whiteColor;
-    cursor: pointer;
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-    @include transition(.4);
-    @media (max-width: $breakpoint-md) {
-      width: 23px;
-      height: 23px;
-    }
-
-    & i {
-      font-size: 8px;
-      color: $whiteColor;
-      @include transition(.4);
-    }
-
-    &:hover {
-      border-color: #C7C7C7;
-      -webkit-transform: translateX(15px);
-      -ms-transform: translateX(15px);
-      transform: translateX(15px);
-
-      & i {
-        color: #C7C7C7;
-      }
-    }
-  }
 
   &-more {
-    color: $primaryColor;
-    font-size: 20px;
-    font-weight: 700;
+    color: $accentColor;
+    padding: 16px 83px 17px 24px;
+    box-shadow: 0px 4px 10px 0px #7852F759;
+    border: 1px solid $accentColor;
+    border-radius: 10px;
+    font-size: 16px;
     @include transition(.5);
-
-    i {
-      position: relative;
-      margin-left: 10px;
-
-      @include transition(.5);
-      width: 30px;
-      height: 9px;
-      background-color: rgba(255, 255, 255, 0.01);
-      @media (max-width: $breakpoint-md) {
-        width: 20px;
-        margin-left: 5px;
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 100%;
-        height: 1px;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        border-right: 1px solid;
-        border-bottom: 1px solid;
-        border-color: inherit;
-        @include transition(.5);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 9px;
-        height: 9px;
-        -webkit-transform: translateY(-50%) rotate(-45deg);
-        -ms-transform: translateY(-50%) rotate(-45deg);
-        transform: translateY(-50%) rotate(-45deg);
-        border-right: 1px solid;
-        border-bottom: 1px solid;
-        border-color: inherit;
-        @include transition(.5);
-      }
-    }
-
+    //
 
     & span {
+      &:before {
+        content: '';
+        position: absolute;
+        top: 7.5px;
+        right: 7.5px;
+        background: url("../img/ar-right.svg") no-repeat center;
+        height: 32px;
+        width: 32px;
+      }
+
       &:after {
         content: '';
-        background-color: #FB0;
-        height: 14px;
-        width: 100%;
+        background-color: $accentColor;
+        border-radius: 10px 8px 8px 10px;
+        height: 100%;
+        width: 51px;
         position: absolute;
-        bottom: -3px;
-        left: 0;
+        bottom: 0;
+        right: -1px;
         @include transition(.5);
         z-index: -1;
       }
@@ -213,19 +102,7 @@
     }
 
     &:hover {
-      color: #FB0;
 
-      & i {
-        &::before, &::after {
-          border-color: #FB0;
-        }
-      }
-
-      & span {
-        &:after {
-          background-color: #F9F3CB;
-        }
-      }
     }
   }
 }
@@ -246,6 +123,7 @@
     width: 65px;
     height: 65px;
   }
+
   &__img {
     position: absolute;
     z-index: 3;

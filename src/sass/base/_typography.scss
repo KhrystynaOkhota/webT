@@ -65,7 +65,10 @@
 .heading-font {
   font-family: 'Gilroy', sans-serif;
 }
-.icon-list:before {
+.icon-ar-right:before {
+  content: "\e900";
+}
+.icon-check:before {
   content: "\e901";
   color: #6534c9;
 }
