@@ -176,7 +176,7 @@
     &__wrap {
       @media (max-width: $breakpoint-md) {
         max-width: 236px;
-        margin-bottom:80px;
+        margin-bottom: 80px;
       }
 
       & .decor {
@@ -198,16 +198,18 @@
         & .decor {
           transform: translate(-50%, -50%);
         }
+
         @media (max-width: $breakpoint-md) {
-          margin-left: 0 ;
+          margin-left: 0;
 
         }
       }
     }
+
     &:nth-child(even) {
       .info__item {
         @media (max-width: $breakpoint-md) {
-          margin-right: 0 ;
+          margin-right: 0;
 
         }
       }
@@ -293,33 +295,15 @@
   padding-bottom: 0;
 
   &__inner {
-    @media (min-width: $breakpoint-md) {
-      flex-direction: row-reverse;
-    }
+
   }
 
   & .heading {
     margin-bottom: 20px;
-    color: $whiteColor;
+    color: $primaryColor;
     @media (max-width: $breakpoint-md) {
       margin-bottom: 24px;
-      padding: 0 24px 0 16px;
-    }
-
-    & .decor {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -45%);
-      height: auto;
-      width: 100%;
-      max-width: 250px;
-
-      z-index: -1;
-      @media (min-width: $breakpoint-md) {
-        min-width: calc(100% + 66px);
-      }
-
+     
     }
   }
 
@@ -349,15 +333,7 @@
 
       margin: 0 auto -20px auto;
 
-      &:after {
-        //  content: '';
-        background: url("../img/about-bg.svg");
-        height: 40%;
-        width: 150%;
-        position: absolute;
-        left: 20px;
-        bottom: 0;
-      }
+
     }
   }
 }
@@ -485,25 +461,35 @@
       }
     }
 
+    &__name {
+      width: calc(100% - 46px);
+    }
+
+    &__icon {
+      color: #6534c9;
+      font-size: 25px;
+      margin-right: 16px;
+    }
+
     &__item {
-      padding: 10px 16px 10px 62px;
+      padding: 18px 16px;
       background-color: #fff;
       border: 1px solid rgba(101, 52, 201, 0.25);
       border-radius: 10px;
       position: relative;
 
-      &:before {
-        content: '\e901';
-        font-family: 'icomoon';
-        color: #6534c9;
-        font-size: 25px;
-        width: 25px;
-        height: 25px;
-        position: absolute;
-        left: 18px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
+      /* &:before {
+         content: '\e901';
+         font-family: 'icomoon';
+         color: #6534c9;
+         font-size: 25px;
+         width: 25px;
+         height: 25px;
+         position: absolute;
+         left: 18px;
+         top: 50%;
+         transform: translateY(-50%);
+       }*/
     }
   }
 }
