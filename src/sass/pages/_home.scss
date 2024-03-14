@@ -66,7 +66,14 @@
   }
 
   &__bg {
-    width: 40vw;
+
+    @media (min-width: 960px) {
+      margin-right: calc((-100vw + 920px) / 2);
+    }
+    @media (min-width: 1240px) {
+      margin-right: calc((-100vw + 1220px) / 2);
+    }
+
     & img {
       width: 100%;
     }
@@ -160,7 +167,7 @@
 }
 
 .s-info {
-  padding: 176px 0 70px 0;
+  padding: 176px 0 0 0;
   @media (max-width: $breakpoint-md) {
     padding: 56px 0 85px 0;
   }
@@ -185,32 +192,9 @@
   }
 
   & .column {
-    &:nth-child(2) {
-      .info__item {
-        margin-left: 10%;
-        width: 90%;
-      }
-    }
-
-    &:nth-child(even) {
-      .info__item {
-        position: relative;
-
-        & .decor {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-
-          min-width: 106%;
-
-          transform: translate(-50%, -50%) scaleY(-1);
-        }
-      }
-    }
-
     &:nth-child(odd) {
       .info__item {
-        position: relative;
+
 
         & .decor {
           position: absolute;
@@ -224,16 +208,68 @@
     }
   }
 
+  /* & .column {
+     &:nth-child(2) {
+       .info__item {
+         margin-left: 10%;
+         width: 90%;
+       }
+     }
+
+     &:nth-child(even) {
+       .info__item {
+         position: relative;
+
+         & .decor {
+           position: absolute;
+           top: 50%;
+           left: 50%;
+
+           min-width: 106%;
+
+           transform: translate(-50%, -50%) scaleY(-1);
+         }
+       }
+     }
+
+     &:nth-child(odd) {
+       .info__item {
+         position: relative;
+
+         & .decor {
+           position: absolute;
+           top: 65%;
+           left: 50%;
+
+           min-width: 106%;
+           transform: translate(-50%, -50%);
+         }
+       }
+     }
+   }
+ */
   & .info {
     &__item {
-      margin-bottom: 91px;
+      margin-bottom: 61px;
       padding: 30px;
+      max-width: 340px;
+      position: relative;
       @media (max-width: $breakpoint-sm) {
         margin-bottom: 50px;
 
         max-width: 330px;
 
 
+      }
+
+      & .decor {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 110%;
+
+        transform: translate(-50%, -50%) scaleY(-1);
       }
     }
 
@@ -244,11 +280,11 @@
 }
 
 .s-about {
-  padding-bottom: 90px;
+  padding-bottom: 0;
 
-  & .container {
-    @media (max-width: $breakpoint-sm) {
-      padding-right: 0;
+  &__inner {
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row-reverse;
     }
   }
 
@@ -298,9 +334,20 @@
 
     &-wrap {
       padding-bottom: 100%;
+      min-height: 480px;
       position: relative;
-      width: 70%;
-      margin: 0 auto;
+
+      margin: 0 auto -20px auto;
+
+      &:after {
+        //  content: '';
+        background: url("../img/about-bg.svg");
+        height: 40%;
+        width: 150%;
+        position: absolute;
+        left: 20px;
+        bottom: 0;
+      }
     }
   }
 }
@@ -534,6 +581,7 @@
   margin-bottom: 160px;
   @media (max-width: $breakpoint-md) {
     margin-bottom: 42px;
+    padding-top: 20px;
   }
 
   &__inner {
@@ -602,18 +650,39 @@
     &__description {
       @include fontSize(10, 12);
       line-height: 1.5;
-      background-color: rgba(255, 255, 255, 1);
-      width: 295px;
-      height: 148px;
+
+
       color: $accentColor;
-      padding: 30px 60px;
-      position: absolute;
-      bottom: 85%;
-      left: 85%;
-      border-radius: 100%;
-      @media (max-width: $breakpoint-md) {
-        max-width: 215px;
+
+      &-wrap {
+        position: absolute;
+        right: 14px;
+        top: 20px;
+        width: 288px;
+        height: 148px;
+        z-index: 5;
+        border-radius: 100%;
+        background-color: rgba(255, 255, 255, 1);
+        padding: 15px 30px;
+        @media (max-width: $breakpoint-md) {
+          width: 225px;
+          height: 111.17px;
+          padding: 15px;
+          right: -16px;
+          top:-20px;
+        }
+
+        & .decor {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 104%;
+          height: auto;
+          transform: translate(-50%, -50%);
+        }
       }
+
+
     }
 
     &__services {
